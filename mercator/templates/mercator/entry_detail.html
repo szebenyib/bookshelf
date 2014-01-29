@@ -1,0 +1,23 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<title>{{ entry.title }}</title>
+</head>
+<body>
+<h1 id="heading">{{ entry.title }}</h1>
+	<div id="tags">
+		{% if entry.tags %}
+			<p>
+			{{ entry.tags.all }}	
+			</p>
+		{% endif %}
+	</div>
+	<div id="author">
+		{{ entry.author|safe }}
+	</div>
+	<div id="content">
+		{{ entry.body_html|safe }}
+	</div>
+</body>
+</html>
