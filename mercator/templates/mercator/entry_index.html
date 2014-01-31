@@ -1,20 +1,40 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>Welcome to flare.dnsalias.net!</title>
 
-	<title>Entries index</title>
 </head>
 <body>
-	<h1 id="heading">Entries index</h1>
+	<h1 id="heading">Welcome! Üdvözöllek weboldalamon!</h1>
 	{% for entry in entry_list %}
-		<h2>{{ entry.title }}</h2>
-		<p>Published on {{ entry.pub_date|date:"F j, Y" }}</p>
-		{% if entry.excerpt_html %}
-			{{ entry.excerpt_html|safe }}
-		{% else %}
-			{{ entry.body_html|truncatewords_html:"50"|safe }}
-		{% endif %}
-		<p><a href="{{ entry.get_absolute_url }}">Read full entry</a></p>
+		<h2 id="title">{{ entry.title }}</h2>
+		<div id="published">
+			<p>Published on {{ entry.pub_date|date:"F j, Y" }}</p>
+		</div>
+		<div id="category">
+			<p>{{ entry.categories|safe }}</p>
+		</div>
+		<div id="excerpt">
+			{% if entry.excerpt_html %}
+				{{ entry.excerpt_html|safe }}
+			{% else %}
+				{{ entry.body_html|truncatewords_html:"50"|safe }}
+			{% endif %}
+		</div>
+		<div id="link_to_full"
+			<p><a href="{{ entry.get_absolute_url }}">Read full entry</a></p>
+		</div>
 	{% endfor %}
+
+	<div id="description">
+		<p>This website has been created to store my experience with IT related
+		stuff. Mostly Arch Linux, Ubuntu, and maybe Arduino adventures. And the
+		summaries of my hikes (only available in Hungarian).</p>
+		<p>A weboldalt azért hoztam létra, hogy a különböző IT-s feljegyzéseimnek
+		helyet adjon. Főként apró fogásokat találsz itt Linuxról (Arch, Ubuntu),
+		illetve talán majd Arduino-ról is. Az oldalon kaptak helyet a túrákról
+		készült beszámolóim is. Az IT nyelve angol, így azokat csak angolul
+		találod meg, a túrabeszámolókat magyarul írom.</p>
+	</div>
 </body>
 </html>
