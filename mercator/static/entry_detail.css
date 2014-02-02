@@ -1,0 +1,21 @@
+#tags {
+	float:			right;
+}
+
+#author {
+	font-style:		italic;
+	padding:		0 0 0.8em 0;
+}
+
+#entryhtml {
+	border-style:		solid;
+	border-width:		thin;
+	border-color:		#ccd1c6;
+	padding:		0.5em;
+	background-color:	#fdfdfd;
+	margin:			0 0 2em 0;
+}
+
+#entryhtml p {
+	padding:		0.2em 0 0 0;
+}
