@@ -70,7 +70,7 @@ class Entry(models.Model):
         return "/blog/%s/%s/" % (self.pub_date.strftime("%Y/%b/%d").lower(), self.slug)
 
     def save(self, force_insert=False, force_update=False):
-        self.body_html = markdown(self.body)
+        self.body_html = markdown(self.body, extensions=['codehilite'])
         if self.excerpt:
             self.excerpt_html = markdown(self.excerpt)
         super(Entry, self).save(force_insert, force_update)

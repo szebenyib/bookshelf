@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'taggit',
     'markdown',
     'mercator',
+    'utils',
 )
 
 MIDDLEWARE_CLASSES = (
