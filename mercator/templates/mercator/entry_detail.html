@@ -1,28 +1,27 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+{% extends "base.html" %}
 {% load staticfiles %}
-<meta http-equiv="Content-type" content="text/html; charset=iso-8859-2" />
-<meta http-equiv="Content-Language" content="hu-hu" />
-<title>{{ entry.title }}</title>
-<!-- <link rel="stylesheet" type="text/css" href="{% static "reset.css" %}" media="all" /> -->
-<link rel="stylesheet" type="text/css" href="{% static "base.css" %}" media="all" />
-<link rel="stylesheet" type="text/css" href="{% static "pygments.css" %}" media="all" />
-<link rel="stylesheet" type="text/css" href="{% static "entry_detail.css" %}" media="all" />
-<meta http-equiv="imagetoolbar" content="no" />
-<meta name="keywords" content="Túrázás, Arch Linux, IT notes" />
-<meta name="description" content="A blog about Linux, IT, and hiking. Egy blog
-Linuxról, IT-ről és túrázásról." />
-<link rel="SHORTCUT ICON" href="favicon.ico" />
-<body>
-<div id=content>
+
+{% block title %}
+	{{ entry.title }}
+{% endblock title %}
+
+{% block css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static "pygments.css" %}" media="all" />
+	<link rel="stylesheet" type="text/css" href="{% static "entry_detail.css" %}" media="all" />
+{% endblock css %}
+
+{% block content %}
 	<h1 id="heading">{{ entry.title }}</h1>
 	<div id="tags">
+		{#TODO: Prefetch is needed, will add later#}
 		{% if entry.tags %}
-			<p>
-			{{ entry.tags.all }}	
-			</p>
+			<p>[{% spaceless %}
+			{# Adding a comma for all, but the last one#}
+			{% for tag in entry.tags.all %}
+				{{ tag.name }}{% if not forloop.last %},{% endif %}
+			{% endfor %}
+			{% endspaceless %}]</p>
 		{% endif %}
 	</div>
 	<div id="author">
@@ -31,6 +30,6 @@ Linuxról, IT-ről és túrázásról." />
 	<div id="entryhtml">
 		{{ entry.body_html|safe }}
 	</div>
-</div>
-</body>
-</html>
+{% endblock content %}
+
+{% block

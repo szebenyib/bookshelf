@@ -1,21 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+{% extends "base.html" %}
 {% load staticfiles %}
-<meta http-equiv="Content-type" content="text/html; charset=iso-8859-2" />
-<meta http-equiv="Content-Language" content="hu-hu" />
-<title>Welcome to flare.dnsalias.net!</title>
-<!-- <link rel="stylesheet" type="text/css" href="{% static "reset.css" %}" media="all" /> -->
-<link rel="stylesheet" type="text/css" href="{% static "base.css" %}" media="all" />
-<link rel="stylesheet" type="text/css" href="{% static "entries_index.css" %}" media="all" />
-<meta http-equiv="imagetoolbar" content="no" />
-<meta name="keywords" content="Túrázás, Arch Linux, IT notes" />
-<meta name="description" content="A blog about Linux, IT, and hiking. Egy blog
-Linuxról, IT-ről és túrázásról." />
-<link rel="SHORTCUT ICON" href="favicon.ico" />
-<body>
-<div id=content>
+{% block css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static "entries_index.css" %}" media="all" />
+{% endblock css %}
+
+{% block content %}
 	<h1 id="heading">@flare.dnsalias.net</h1>
 	{% for entry in entry_list %}
 		<h2 id="title">{{ entry.title }}
@@ -35,17 +25,4 @@ Linuxról, IT-ről és túrázásról." />
 			<a href="{{ entry.get_absolute_url }}">Read full entry</a>
 		</div>
 	{% endfor %}
-
-	<div id="description">
-		<p>This website has been created to store my experience with IT related
-		stuff. Mostly Arch Linux, Ubuntu, and maybe Arduino adventures. And the
-		summaries of my hikes (only available in Hungarian).</p>
-		<p>A weboldalt azért hoztam létre, hogy a különböző IT-s feljegyzéseimnek
-		helyet adjon. Főként apró fogásokat találsz itt Linuxról (Arch, Ubuntu),
-		illetve talán majd Arduino-ról is. Az oldalon kaptak helyet a túrákról
-		készült beszámolóim is. Az IT nyelve angol, így azokat csak angolul
-		találod meg, a túrabeszámolókat magyarul írom.</p>
-	</div>
-</div>
-</body>
-</html>
+{% endblock content %}
