@@ -90,6 +90,10 @@ USE_TZ = True
 
 STATIC_URL = '/bookshelf/static/'
 
+STATICFILES_DIRS = (
+       PROJECT_PATH + '/static/',
+)
+ 
 #Required by sites framework, required by flatpages
 SITE_ID = 1
 
