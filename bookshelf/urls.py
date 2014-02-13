@@ -9,5 +9,5 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^blog/', include('mercator.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^about/', include('django.contrib.flatpages.urls')),
+    url(r'^(?P<url>.*/)$', include('django.contrib.flatpages.urls')),
 )
