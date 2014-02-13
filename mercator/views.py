@@ -3,7 +3,7 @@ from mercator.models import Entry
 
 def entries_index(request):
     return render(request, 'mercator/entry_index.html',
-        { 'entry_list': Entry.objects.all() })
+        { 'entry_list': Entry.objects.filter(status=Entry.LIVE_STATUS) })
 
 def entry_detail(request, year, month, day, slug):
 #    import datetime, time
