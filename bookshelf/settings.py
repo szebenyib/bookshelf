@@ -26,6 +26,7 @@ DEBUG = False
 TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = [
+        '.flare.privatedns.org',
         '.flare.dnsalias.net',
         '127.0.0.1',
 ]
